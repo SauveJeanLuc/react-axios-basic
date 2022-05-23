@@ -1,0 +1,99 @@
+
+.web-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: #f2f2f2;
+  max-height: 100%;
+}
+
+.web-container div{
+  /* background-color: rgb(116, 187, 116) */
+}
+
+.register{
+  flex-grow: 1;
+  flex-basis: 0;
+  margin-left: 10px;
+  margin-right: 20px;
+  max-width: 100%;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input{
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.register-form textarea{
+  flex-grow: 4;
+  flex-basis: 1;
+}
+.register-form button{
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.register-form input, textarea {
+  border-radius: 4px;
+  max-width: 100%;
+  padding: 12px 77px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.register-form button{
+  width: 100%;
+  border-radius: 4px;
+  color: white;
+  background-color: #4CAF50;
+  font-family: Tahoma, sans-serif;
+  border: none;
+  padding: 7px 100px;
+}
+
+.posts{
+  background-color: #f2f2f2;
+  flex-grow: 1;
+  flex-basis: 0;
+	overflow-y: scroll;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.display{
+  flex-grow: 1;
+  flex-basis: 0;
+  border-radius: 4px;
+  background-color: rgb(243, 254, 240);
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(59, 59, 59, 0.2);
+}
+.display-body{
+  font-size: medium;
+}
+.display-title{
+  font-size: medium;
+  font-weight: 500;
+}
+
+.success-message {
+  background-color: #0a53c1;
+  padding: 15px;
+  border-radius: 2px;
+  text-align: center;
+  margin-bottom: 9px;
+  color: white;
+}
+
+span {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 15px;
+}
