@@ -74,6 +74,7 @@
   padding: 10px 20px;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0 rgba(59, 59, 59, 0.2);
+  position: relative;
 }
 .display-body{
   font-size: medium;
@@ -96,4 +97,16 @@ span {
   font-size: 14px;
   color: red;
   margin-bottom: 15px;
+}
+
+.delete-icon {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 3px;
+  margin-left: 3px;
+}
+
+.delete-icon :hover {
+  color: red;
 }

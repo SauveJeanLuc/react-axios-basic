@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import './App.css'
+import { faSpaghettiMonsterFlying, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 const client = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/posts',
@@ -23,6 +25,34 @@ export default function App() {
     });
   }, []);
 
+  const deletePost = async (id) => {
+      await client.delete(`${id}`);
+
+      setPosts(
+        posts.filter (
+          (post) => {
+            return post.id !== id;
+          }
+        )
+      );
+  }
+
+  const addPost = async (title, body) => {
+    // console.log("ME2U");
+
+    let response = await client.post('', {
+      title: values.title,
+      body: values.body,
+    });
+
+    console.log("MEEEEEEE");
+    console.log(response);
+
+    setPosts([response.data, ...posts])
+    setTitle('');
+    setBody(''); 
+  }
+
   const handleTitleInputChange = (event) => {
     if(submitted)
       setSubmitted(false)
@@ -43,6 +73,7 @@ export default function App() {
       setValid(true)
     
     setSubmitted(true);
+    addPost(title, body);
   }
 
   return (
@@ -91,10 +122,10 @@ export default function App() {
       <div className='posts'>
       { posts.map(post => {
         return(
-          <div className='display'>
+          <div className='display' key={post.title}>
             <p className='display-body'>{post.body}</p>
             <h1 className='display-title'>{post.title}</h1>
-            <FontAwesomeIcon icon="fa-solid fa-trash" style={{backgroundColor: 'red'}}/>
+            <FontAwesomeIcon icon={faTrash} className='delete-icon' onClick={ () => deletePost(post.id) }/>
           </div>
         );
       })}  
